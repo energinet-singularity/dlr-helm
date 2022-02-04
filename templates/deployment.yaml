@@ -30,17 +30,13 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: KSQL_URL
-              value: {{ .Values.ksqlUrl }}
+              value: {{ .Values.ksqlUrl | quote }}
             - name: KAFKA_URL
-              value: {{ .Values.kafkaUrl }}
+              value: {{ .Values.kafkaUrl | quote }}
             - name: KAFKA_OUTPUT_TOPIC
-              value: {{ .Values.kafkaOutputTopic }}
+              value: {{ .Values.kafkaOutputTopic | quote }}
             - name: UPDATE_FREQUENCY
-              value: {{ .Values.updateFrequency }}
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
+              value: {{ .Values.updateFrequency | quote }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
  
