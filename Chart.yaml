@@ -1,0 +1,4 @@
+apiVersion: v2
+name: dlr
+description: A Helm chart for the Dynamic Line Rating application
+version: 1.0.1
